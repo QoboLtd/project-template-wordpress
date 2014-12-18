@@ -56,10 +56,10 @@ group('app', function() {
 	task('install', ':dotenv:create', ':dotenv:reload', ':file:process');
 	task('install', ':mysql:database-create');
 	// From here on, you can either import the full MySQL dump with find-replace...
-	//task('install', ':mysql:database-import');
-	//task('install', ':mysql:find-replace');
+	task('install', ':mysql:database-import');
+	task('install', ':mysql:find-replace');
 	// ... or have a fresh and clean install
-	task('install', ':wordpress:install');
+	//task('install', ':wordpress:install');
 
 
 	desc('Update application');
