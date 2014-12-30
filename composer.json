@@ -45,6 +45,21 @@
 				}
 			}
 		},
+                {
+                        "type": "package",
+                        "package": {
+                                "name": "qobo/qobo-wp-brand",
+                                "type": "wordpress-theme",
+                                "version": "1.0.0",
+                                "dist": {
+                                        "type": "zip",
+                                        "url": "https://github.com/QoboLtd/Qobo-WP-Brand/archive/v1.0.0.zip"
+                                },
+                                "require": {
+                                        "composer/installers": "~1.0"
+                                }
+                        }
+                },
 		{
 			"type": "composer",
 			"url": "http://wpackagist.org"
@@ -58,7 +73,7 @@
 		"wp-cli/wp-cli": "~0.17",
 		"qobo/qobo-wp-generic-theme": "1.0.0",
 		"qobo/qobo-wp-custom-theme-path": "1.0.1",
-		"qobo/qobo-wp-brand": "0.1",
+		"qobo/qobo-wp-brand": "1.0.0",
 		"wpackagist-plugin/disable-wordpress-updates": "1.4.2",
 		"wpackagist-plugin/wp-theme-plugin-editor-disable": "1.0.0",
 		"wpackagist-plugin/disable-comments": "1.2",
