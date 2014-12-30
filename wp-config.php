@@ -35,7 +35,11 @@ $name = getenv('DB_NAME');
 $host = getenv('DB_HOST') ?: 'localhost';
 $user = getenv('DB_USER') ?: 'root';
 $pass = getenv('DB_PASS') ?: '';
+
+// Thanks to: https://wordpress.org/support/topic/disable-error-reporting-in-wordpress
 $debug = getenv('WP_DEBUG') ?: false;
+$debug_log = getenv('WP_DEBUG_LOG') ?: false;
+$debug_display = getenv('WP_DEBUG_LOG') ?: false;
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
@@ -102,6 +106,8 @@ define('WPLANG', '');
  * in their development environments.
  */
 define('WP_DEBUG', $debug);
+define('WP_DEBUG_LOG', $debug_log);
+define('WP_DEBUG_DISPLAY', $debug_display);
 
 /* That's all, stop editing! Happy blogging. */
 

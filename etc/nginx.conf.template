@@ -59,8 +59,11 @@ server {
 	location = /Phakefile { deny all; }
 	location = /README.md { deny all; }
 
+	# Add trailing slash to /wp-admin requests
+	rewrite /wp-admin$ $scheme://$host$uri/ permanent;
+
 	location / {
-		try_files $uri $uri/ =404;
+		try_files $uri $uri/ /index.php?$args;
 	}
 
 	# PHP

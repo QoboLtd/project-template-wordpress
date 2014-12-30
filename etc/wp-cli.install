@@ -10,6 +10,11 @@
 		--admin_email=%%WP_ADMIN_EMAIL%% 
 
 # 
+# Add dev user
+# 
+%%SYSTEM_COMMAND_WPCLI%% user create %%WP_DEV_USER%% %%WP_DEV_EMAIL%% --user_pass=%%WP_DEV_PASS%% --role=administrator
+
+# 
 # Remove default content
 # 
 %%SYSTEM_COMMAND_WPCLI%% comment delete 1 --force
@@ -21,20 +26,8 @@
 # 
 %%SYSTEM_COMMAND_WPCLI%% rewrite structure "/%year%/%monthnum%/%day%/%postname%/"
 
-#
-# Install plugins
-#
-
-# WordPress Directory plugins
-%%SYSTEM_COMMAND_WPCLI%% plugin install --force --activate disable-wordpress-updates --version=1.4.2
-%%SYSTEM_COMMAND_WPCLI%% plugin install --force --activate wp-theme-plugin-editor-disable --version=1.0.0
-%%SYSTEM_COMMAND_WPCLI%% plugin install --force --activate disable-comments --version=1.2
-%%SYSTEM_COMMAND_WPCLI%% plugin install --force --activate jetpack --version=3.2
-# Custom plugins
-%%SYSTEM_COMMAND_WPCLI%% plugin install --force --activate https://github.com/QoboLtd/Qobo-WP-Custom-Theme-Path/archive/v1.0.0.zip
-
 # 
-# Active plugins
+# Activate all installed inactive plugins (install them with Composer)
 # 
 for WP_INACTIVE_PLUGIN in $(%%SYSTEM_COMMAND_WPCLI%% plugin list --status=inactive --field=name)
 do
@@ -42,13 +35,9 @@ do
 done
 
 #
-# Install themes
+# Activate custom child theme themes
 # 
 
-# WordPress theme directory (default WP theme, just in case something breaks)
-%%SYSTEM_COMMAND_WPCLI%% theme install --force twentyfourteen
-# Custom parent theme (slug or, local or remote ZIP)
-%%SYSTEM_COMMAND_WPCLI%% theme install --force %%WP_THEME%%
 # Custom child theme (this is just a good practice)
 %%SYSTEM_COMMAND_WPCLI%% theme activate custom
 
@@ -60,5 +49,19 @@ done
 %%SYSTEM_COMMAND_WPCLI%% option update home '%%WP_URL%%'
 # Disable comments everywhere, for the Disable Comments plugin
 %%SYSTEM_COMMAND_WPCLI%% option update disable_comments_options '{"disabled_post_types":["post","page","attachment"],"remove_everywhere":true,"permanent":false,"extra_post_types":false,"db_version":6}' --format=json
+# Custom upload directory, uploads will be added in a separate firectory by logged in user. Files uploaded by dev user will be versioned
+%%SYSTEM_COMMAND_WPCLI%% option update custom_upload_dir --format=json '{"test_ids":"-1","template":"\/%current_user%\/%year%\/%monthnum%","only_leaf_nodes":false,"only_base_nodes":false,"flatten_hierarchy":false,"all_parents":true}'
+# Resize after upload settings
+%%SYSTEM_COMMAND_WPCLI%% option update jr_resizeupload_width '2560'
+%%SYSTEM_COMMAND_WPCLI%% option update jr_resizeupload_height '1440'
+%%SYSTEM_COMMAND_WPCLI%% option update jr_resizeupload_quality '90'
+%%SYSTEM_COMMAND_WPCLI%% option update jr_resizeupload_resize_yesno 'yes'
+%%SYSTEM_COMMAND_WPCLI%% option update jr_resizeupload_recompress_yesno 'no'
+%%SYSTEM_COMMAND_WPCLI%% option update jr_resizeupload_convertbmp_yesno 'no'
+%%SYSTEM_COMMAND_WPCLI%% option update jr_resizeupload_convertpng_yesno 'no'
+%%SYSTEM_COMMAND_WPCLI%% option update jr_resizeupload_convertgif_yesno 'no'
+# Qobo Developed by
+%%SYSTEM_COMMAND_WPCLI%% option update qbdevby_settings '{"title":"", "text":"Designed and developed by", "text_style":"", "style":"text-align:center;", "light_colour_icon":"", "link":"http://www.qobo.biz", "footer":"1"}' --format=json
+
 
 # vi:ft=sh
