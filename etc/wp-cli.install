@@ -21,6 +21,16 @@
 %%SYSTEM_COMMAND_WPCLI%% post delete 1 --force
 %%SYSTEM_COMMAND_WPCLI%% post delete 2 --force
 
+#
+# Remove default widgets
+#
+%%SYSTEM_COMMAND_WPCLI%% widget delete search-2 --allow-root
+%%SYSTEM_COMMAND_WPCLI%% delete recent-posts-2 --allow-root
+%%SYSTEM_COMMAND_WPCLI%% delete recent-comments-2 --allow-root
+%%SYSTEM_COMMAND_WPCLI%% delete archives-2 --allow-root
+%%SYSTEM_COMMAND_WPCLI%% delete categories-2 --allow-root
+%%SYSTEM_COMMAND_WPCLI%% delete meta-2 --allow-root
+
 # 
 # Setup friendly URLs
 # 
