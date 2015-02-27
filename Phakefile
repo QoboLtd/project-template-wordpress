@@ -55,6 +55,10 @@ group('app', function() {
 	task('install', ':composer:install');
 	task('install', ':dotenv:create', ':dotenv:reload', ':file:process');
 	task('install', ':mysql:database-create');
+	
+	// if you are downloading an archive
+	// task('install', ':wordpress:prepare');
+	
 	// From here on, you can either import the full MySQL dump with find-replace...
 	//task('install', ':mysql:database-import');
 	//task('install', ':mysql:find-replace');
@@ -70,8 +74,12 @@ group('app', function() {
 	task('update', ':git:pull', ':git:checkout');
 	task('update', ':composer:install');
 	task('update', ':dotenv:create', ':dotenv:reload', ':file:process');
-	task('update', ':mysql:database-import');
-	task('update', ':mysql:find-replace');
+
+	// if you are downloading an archive
+	// task('update', ':wordpress:prepare');
+	
+	task('update', ':wordpress:update');
+	
 
 
 	desc('Remove application');
@@ -93,6 +101,82 @@ group('wordpress', function() {
 		
 		runWPCLIBatch('install', $app);
 	});
+	
+	desc("Update WordPress");
+	task('update', ':builder:init', function($app) {
+		printSeparator();
+		printInfo("Update WordPress");
+		
+		runWPCLIBatch('update', $app);
+	});
+	
+	desc("Prepare WordPress files");
+ 	task('prepare', ':builder:init', function($app) {
+        printSeparator();
+        printInfo("Preparing WordPress");
+		printSeparator();
+		
+		printInfo("Downloading the archive");
+		//The file url
+		$dlsrc = 'https://qobo.s3.amazonaws.com/shared/public/myestates.co/wp-content.zip' ;
+		//The destination path
+		$dldst = 'etc/wp-content.zip';
+		$result = \PhakeBuilder\FileSystem::downloadFile($dlsrc, $dldst);
+		if (!$result) {
+			throw new \RuntimeException("Failed to download file");
+		}
+		printSuccess("Download complete!");
+		printSeparator();
+		
+		//
+		// The folder you want to download is first being removed
+		//
+		printInfo("Deleting existing folder"); 
+		// Folder path to delete
+		$wppath = "wp-content/";
+		$result = \PhakeBuilder\FileSystem::removePath($wppath);
+		if (!$result) {
+			throw new \RuntimeException("Failed to remove path");
+		}
+		printSuccess("Delete complete!");
+		printSeparator();
+		
+		printInfo("Extracting downloaded archive");
+		// The path to the archive
+		$exsrc = 'etc/wp-content.zip';
+		// The path to extract the archive
+		$exdst = './';
+		try {
+			\Phakebuilder\Archive::extract($exsrc, $exdst);
+		} catch (\Exception $e) {
+			throw new \RuntimeException($e->getMessage());
+		}
+		printSuccess("Extract complete!");
+		printSeparator();
+		
+		//
+		// The archive you specified in $exsrc will be deleted
+		//
+		printInfo("Deleting downloaded archive"); 
+		$result = \PhakeBuilder\FileSystem::removePath($exsrc);
+		if (!$result) {
+			throw new \RuntimeException("Failed to remove path");
+		}
+		printSuccess("Delete complete!");
+		printSeparator();
+		
+		//
+		// The folder you specified in $wppath will change permissions 
+		//
+		printInfo("Fixing extracted folder permissions"); 
+		$result = \PhakeBuilder\FileSystem::chmodPath($wppath);
+		if (!$result) {
+			throw new \RuntimeException("Failed to change permissions");
+		}
+		printSuccess("Permission change complete!");
+		printSuccess("SUCCESS!");
+		
+ 	});
 	
 });
 
