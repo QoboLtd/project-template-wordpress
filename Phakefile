@@ -60,7 +60,7 @@ group('app', function() {
 	//task('install', ':mysql:find-replace');
 	// ... or have a fresh and clean install
 	task('install', ':wordpress:install');
-	task('install', ':wordpress:content');
+	//task('install', ':wordpress:content');
 
 
 	desc('Update application');
