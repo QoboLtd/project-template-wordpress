@@ -91,14 +91,14 @@
 		"qobo/qobo-wp-brand": "1.0.0",
 		"qobo/qobo-wp-shortcodes": "1.0.0",
 		"wpackagist-theme/twentyfifteen": "*",
-		"wpackagist-plugin/disable-wordpress-updates": "1.4.2",
+		"wpackagist-plugin/disable-wordpress-updates": "1.4.7",
 		"wpackagist-plugin/wp-theme-plugin-editor-disable": "1.0.0",
 		"wpackagist-plugin/disable-comments": "1.3.1",
-		"wpackagist-plugin/jetpack": "3.5",
+		"wpackagist-plugin/jetpack": "3.6",
 		"wpackagist-plugin/custom-upload-dir": "3.4.2",
 		"wpackagist-plugin/resize-image-after-upload": "1.7.1",
 		"wpackagist-plugin/compress-png-for-wp": "1.3.5",
-		"wpackagist-plugin/shortcodes-ultimate": "4.9.6",
+		"wpackagist-plugin/shortcodes-ultimate": "4.9.7",
 		"wpackagist-plugin/contact-form-7": "4.2.1"
 	},
 	"require-dev": {
@@ -108,7 +108,7 @@
 		"wpackagist-plugin/debug-bar": "0.8.2",
 		"wpackagist-plugin/debug-bar-console": "*",
 		"wpackagist-plugin/p3-profiler": "*",
-		"wpackagist-plugin/user-switching": "1.0.3"
+		"wpackagist-plugin/user-switching": "1.0.6"
 	},
 	"extra": {
 		"webroot-dir": "wp",
