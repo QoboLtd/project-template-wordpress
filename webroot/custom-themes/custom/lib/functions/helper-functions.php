@@ -51,3 +51,42 @@ function get_images_by_gategory_slug( $slug, $no_of_images = 1 ) {
 
 	return $result;
 }
+
+add_action( 'init', 'disable_upload_files_for_user_qobo' );
+
+/**
+ * Disable upload functionality for the qobo user
+ */
+function disable_upload_files_for_user_qobo() {
+
+	$accepted_domains_str = getenv( 'QOBO_USER_DOMAINS' );
+	if ( empty( $accepted_domains_str ) || false === $accepted_domains_str ) {
+		$accepted_domains_str = '::1';
+	}
+	$accepted_domains = explode( ',', $accepted_domains_str );
+	if ( ! in_array( $_SERVER['REMOTE_ADDR'], $accepted_domains ) ) {
+		return;
+	}
+
+	$user = wp_get_current_user();
+	if ( getenv( 'WP_DEV_USER' ) === $user->user_login ) {
+		remove_post_type_thumbnail();
+		add_action( 'admin_menu', 'remove_menu_links' );
+	}
+}
+
+/**
+ * Remove any links link to upload.php
+ */
+function remove_menu_links() {
+	global $submenu;
+	remove_menu_page( 'upload.php' );
+}
+
+/**
+ * Reomove for post types (post, page) the upload thumbnail functionality
+ */
+function remove_post_type_thumbnail() {
+	remove_post_type_support( 'post', 'thumbnail' );
+	remove_post_type_support( 'page', 'thumbnail' );
+}
