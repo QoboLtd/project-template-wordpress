@@ -70,7 +70,7 @@
         "wpackagist-plugin/uk-cookie-consent": "2.3.15",
         "wpackagist-plugin/wordpress-seo": "12.7.1",
         "wpackagist-plugin/wp-media-library-categories": "1.9.7",
-        "wpackagist-plugin/wp-super-cache": "1.7.0",
+        "wpackagist-plugin/wp-super-cache": "1.7.1",
         "wpackagist-plugin/wp-theme-plugin-editor-disable": "1.0.0"
     },
     "require-dev": {
