@@ -1,6 +1,6 @@
 project-template-wordpress
 ==========================
-
+ 
 [![Build Status](https://travis-ci.org/QoboLtd/project-template-wordpress.svg?branch=master)](https://travis-ci.org/QoboLtd/project-template-wordpress)
 [![Latest Stable Version](https://poser.pugx.org/qobo/project-template-wordpress/v/stable)](https://packagist.org/packages/qobo/project-template-wordpress)
 [![Total Downloads](https://poser.pugx.org/qobo/project-template-wordpress/downloads)](https://packagist.org/packages/qobo/project-template-wordpress)
