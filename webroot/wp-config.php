@@ -47,6 +47,8 @@ $host = getenv('DB_HOST') ?: 'localhost';
 $user = getenv('DB_USER') ?: 'root';
 $pass = getenv('DB_PASS') ?: '';
 
+$cron = (bool)getenv('CRON_ENABLED') ?: false;
+
 // Thanks to: https://wordpress.org/support/topic/disable-error-reporting-in-wordpress
 $debug = getenv('WP_DEBUG') ?: false;
 $debug_log = getenv('WP_DEBUG_LOG') ?: false;
@@ -74,6 +76,9 @@ define('DB_COLLATE', '');
 
 /** Allow repair database http://www.yoursite.com/wp/wp-admin/maint/repair.php */
 define('WP_ALLOW_REPAIR', $allow_repair);
+
+/** Enable WP Cron only if OS Cron is disabled */
+define ('WP_CRON', !$cron);
 
 /**#@+
  * Authentication Unique Keys and Salts.
