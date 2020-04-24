@@ -213,15 +213,6 @@ class App extends AbstractCommand
             ->src('etc/wp-cli.update')
             ->dst('etc/wp-cli.update.sh');
 
-        $tasks []= $this->taskMysqlDbFindReplace()
-            ->search($this->getValue('DB_FIND', $env))
-            ->replace($this->getValue('DB_REPLACE', $env))
-            ->db($this->getValue('DB_NAME', $env))
-            ->user($this->getValue('DB_ADMIN_USER', $env))
-            ->pass($this->getValue('DB_ADMIN_PASS', $env))
-            ->hide($this->getValue('DB_ADMIN_PASS', $env))
-            ->host($this->getValue('DB_HOST', $env));
-
 		$tasks []= $this->taskExec('/bin/bash etc/wp-cli.update.sh');
 
         foreach ($tasks as $task) {

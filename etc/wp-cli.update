@@ -1,6 +1,12 @@
 # Shortcut for the WP CLI command
 WPCLI="%%SYSTEM_COMMAND_WPCLI%%"
 
+#
+# Search and replace database for the domain url
+#
+echo "Searching Db for [%%DB_FIND%%] and replace with [%%DB_REPLACE%%]"
+$WPCLI search-replace '%%DB_FIND%%' '%%DB_REPLACE%%' --precise --recurse-objects --all-tables
+
 # Setup error handling if we are in bash
 if [ ! -z "$BASH" ]
 then
