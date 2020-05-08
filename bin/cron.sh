@@ -2,4 +2,4 @@
 
 DIR="$( cd "$(dirname $( dirname "${BASH_SOURCE[0]}" ) )" >/dev/null && pwd )"
 
-php $DIR/webroot/wp/wp-cron.php
+$DIR/vendor/bin/wp --allow-root --path=webroot/wp cron event run --due-now

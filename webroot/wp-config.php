@@ -1,4 +1,5 @@
 <?php
+// @codingStandardsIgnoreFile
 /**
  * The base configurations of the WordPress.
  *
@@ -47,7 +48,8 @@ $host = getenv('DB_HOST') ?: 'localhost';
 $user = getenv('DB_USER') ?: 'root';
 $pass = getenv('DB_PASS') ?: '';
 
-$cron = (bool)getenv('CRON_ENABLED') ?: false;
+// Check if the os cron is enabled then to disable the wp cron.
+$disable_wp_cron = (bool)getenv('CRON_ENABLED') ?: false;
 
 // Thanks to: https://wordpress.org/support/topic/disable-error-reporting-in-wordpress
 $debug = getenv('WP_DEBUG') ?: false;
@@ -78,7 +80,7 @@ define('DB_COLLATE', '');
 define('WP_ALLOW_REPAIR', $allow_repair);
 
 /** Enable WP Cron only if OS Cron is disabled */
-define ('WP_CRON', !$cron);
+define ('DISABLE_WP_CRON', $disable_wp_cron);
 
 /**#@+
  * Authentication Unique Keys and Salts.
