@@ -32,14 +32,6 @@ echo "Updating WordPress"
 $WPCLI core update-db
 
 #
-# Setting categories
-#
-
-# Update default category 'Uncategorised', set name & slug from 'Uncategorised' to 'General'
-echo "Renaming Uncategorised category to General"
-$WPCLI term update category 1 --name=General --slug=general
-
-#
 # Symlink the custom theme
 #
 # TODO: This should configurable and synchronized with wp-config.php
