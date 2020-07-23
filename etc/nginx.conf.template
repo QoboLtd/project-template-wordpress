@@ -25,9 +25,15 @@ server {
 	# Expires
 	#
 
-	# Non-aggressive Expires header for JavaScript, CSS, and images
-	location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
-		expires 5m;
+	# Aggressive Expires header for images and fonts
+	location ~* \.(png|jpg|jpeg|gif|ico|ttf|woff|otf|eot)$ {
+		expires 365d;
+		log_not_found off;
+	}
+
+	# Aggressive Expires header for JavaScript, CSS
+	location ~* \.(js|css)$ {
+		expires 30d;
 		log_not_found off;
 	}
 
