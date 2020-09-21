@@ -84,7 +84,7 @@
         "wpackagist-plugin/debug-bar": "1.0.1",
         "wpackagist-plugin/debug-bar-console": "0.3",
         "wpackagist-plugin/p3-profiler": "1.5.3.9",
-        "wpackagist-plugin/user-switching": "1.5.5",
+        "wpackagist-plugin/user-switching": "1.5.6",
         "wp-coding-standards/wpcs": "0.11.0"
     },
     "suggest": {
