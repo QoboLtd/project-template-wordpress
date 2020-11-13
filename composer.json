@@ -36,7 +36,7 @@
         "brainmaestro/composer-git-hooks": "^2.4",
         "fancyguy/webroot-installer": "1.1.0",
         "johnpbloch/wordpress-core": "5.5.1",
-        "johnpbloch/wordpress-core-installer": "1.0.2",
+        "johnpbloch/wordpress-core-installer": "2.0.0",
         "josegonzalez/dotenv": "^3.2",
         "pyrech/composer-changelogs": "^1.4",
         "qobo/qobo-robo": "^2.0",
