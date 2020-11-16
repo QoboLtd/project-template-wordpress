@@ -43,7 +43,7 @@
         "qobo/qobo-wp-brand": "2.0.2",
         "qobo/qobo-wp-generic-theme": "1.1.3",
         "qobo/qobo-wp-shortcodes": "1.0.1",
-        "wp-cli/wp-cli": "^1.1",
+        "wp-cli/wp-cli-bundle": "^2.4",
         "wpackagist-plugin/akismet": "4.1.7",
         "wpackagist-plugin/amp": "2.0.5",
         "wpackagist-plugin/bad-behavior": "2.2.24",
