@@ -80,7 +80,7 @@
         "squizlabs/php_codesniffer": "*",
         "thecodingmachine/phpstan-strict-rules": "^0.11.0",
         "wpackagist-plugin/theme-check": "*",
-        "wpackagist-plugin/debug-bar": "1.0.1",
+        "wpackagist-plugin/debug-bar": "1.1.2",
         "wpackagist-plugin/debug-bar-console": "0.3",
         "wpackagist-plugin/p3-profiler": "1.5.3.9",
         "wpackagist-plugin/user-switching": "1.5.6",
