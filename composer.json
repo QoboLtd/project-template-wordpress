@@ -45,7 +45,7 @@
         "qobo/qobo-wp-shortcodes": "1.0.1",
         "wp-cli/wp-cli-bundle": "^2.4",
         "wpackagist-plugin/akismet": "4.1.7",
-        "wpackagist-plugin/amp": "2.0.7",
+        "wpackagist-plugin/amp": "2.0.10",
         "wpackagist-plugin/bad-behavior": "2.2.24",
         "wpackagist-plugin/bootstrap-for-contact-form-7": "1.4.8",
         "wpackagist-plugin/classic-editor": "1.6",
