@@ -72,7 +72,7 @@
         "wpackagist-plugin/wp-media-library-categories": "1.9.9",
         "wpackagist-plugin/wp-super-cache": "1.7.2",
         "wpackagist-plugin/wp-theme-plugin-editor-disable": "1.0.0",
-        "wpackagist-plugin/yoast-test-helper": "1.12"
+        "wpackagist-plugin/yoast-test-helper": "1.13"
     },
     "require-dev": {
         "brianium/paratest": "*",
