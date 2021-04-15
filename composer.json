@@ -55,7 +55,7 @@
         "wpackagist-plugin/disable-comments": "2.1.0",
         "wpackagist-plugin/disable-wordpress-updates": "1.6.7",
         "wpackagist-plugin/fast-velocity-minify": "3.1.4",
-        "wpackagist-plugin/gdpr-cookie-compliance": "4.4.8",
+        "wpackagist-plugin/gdpr-cookie-compliance": "4.5.2",
         "wpackagist-plugin/google-analytics-for-wordpress": "7.16.2",
         "wpackagist-plugin/google-sitemap-generator": "4.1.1",
         "wpackagist-plugin/jetpack": "9.5.1",
