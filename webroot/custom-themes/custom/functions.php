@@ -41,3 +41,8 @@ function load_includes( string $dir ) : void {
 }
 
 load_includes( THEME_LIB_DIR );
+
+/**
+ * Disable admin email verification notice.
+ */
+add_filter( 'admin_email_check_interval', '__return_false' );
