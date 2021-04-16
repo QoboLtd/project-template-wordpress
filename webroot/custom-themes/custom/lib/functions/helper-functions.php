@@ -104,3 +104,7 @@ function image_upload_notice() : void {
 	<?php
 }
 
+/**
+ * Disable admin email verification notice.
+ */
+add_filter( 'admin_email_check_interval', '__return_false' );
