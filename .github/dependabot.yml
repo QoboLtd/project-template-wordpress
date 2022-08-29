@@ -1,0 +1,47 @@
+version: 2
+updates:
+- package-ecosystem: composer
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "03:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: wpackagist-plugin/fast-velocity-minify
+    versions:
+    - 3.1.6
+  - dependency-name: wpackagist-plugin/gdpr-cookie-compliance
+    versions:
+    - 4.4.6
+    - 4.4.7
+    - 4.5.1
+    - 4.5.2
+  - dependency-name: wpackagist-plugin/jetpack
+    versions:
+    - "9.4"
+    - 9.4.1
+    - "9.5"
+    - 9.5.2
+    - "9.6"
+  - dependency-name: wpackagist-plugin/wordpress-seo
+    versions:
+    - "15.7"
+    - "15.8"
+    - "15.9"
+    - 15.9.2
+    - 16.0.1
+  - dependency-name: wpackagist-plugin/contact-form-7-honeypot
+    versions:
+    - 2.0.3
+    - 2.0.4
+  - dependency-name: wpackagist-plugin/google-analytics-for-wordpress
+    versions:
+    - 7.15.1
+    - 7.16.0
+    - 7.16.1
+  - dependency-name: johnpbloch/wordpress-core
+    versions:
+    - 5.6.1
+  - dependency-name: wpackagist-plugin/akismet
+    versions:
+    - 4.1.8
